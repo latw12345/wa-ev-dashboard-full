@@ -325,7 +325,8 @@ ofm_pop_clean <- ofm_pop_raw |>
   ) |>
   filter(
     `Area Name` != "Washington",
-    !is.na(`White Total`)
+    !is.na(`White Total`),
+    `Age Group` != "Total"
   )
 
 ofm_pop_div <- ofm_pop_clean |>

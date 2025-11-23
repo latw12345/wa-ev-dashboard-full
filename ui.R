@@ -25,7 +25,7 @@ library(rlang)
 source("setup.R")
 
 ui <- dashboardPage(
-  dashboardHeader(title = "Team Project Dashboard"),
+  dashboardHeader(title = "Washington EVs"),
   
   dashboardSidebar(
     sidebarMenu(

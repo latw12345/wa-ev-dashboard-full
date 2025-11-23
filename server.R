@@ -986,7 +986,7 @@ server <- function(input, output, session) {
         aes(x = avg_age, y = (total_evs / total_population * 1000)),
         color = "red", size = 5
       ) +
-      geom_smooth(method = "lm", se = FALSE, color = "#f03b20") +
+      geom_smooth(method = "lm", se = TRUE, color = "#f03b20") +
       labs(
         title    = "EVs per 1,000 vs Average Age by County",
         subtitle = paste("Highlighting:", input$county_select),
