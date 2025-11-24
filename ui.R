@@ -31,10 +31,10 @@ ui <- dashboardPage(
     sidebarMenu(
       id = "sbmenu",
       menuItem("Data Exploration", tabName = "explore", icon = icon("magnifying-glass-chart")),
-      menuItem("Li-An Song", tabName = "member1", icon = icon("user")),
-      menuItem("Shahzaib Mohammad", tabName = "member2", icon = icon("user")),
-      menuItem("Zach Wu", tabName = "member3", icon = icon("user")),
-      menuItem("Sangey Rinchen", tabName = "member4", icon = icon("user"))
+      menuItem("Geography & Income", tabName = "member1", icon = icon("map")),
+      menuItem("Range & Composition", tabName = "member2", icon = icon("car")),
+      menuItem("Age & Diversity", tabName = "member3", icon = icon("users")),
+      menuItem("EVs & Emissions", tabName = "member4", icon = icon("cloud"))
     )
   ),
   
@@ -259,6 +259,32 @@ ui <- dashboardPage(
             
             uiOutput("comparison_panel")
           )
+        ),
+        
+        fluidRow(
+          box(
+            title = "Summary of Key Findings",
+            width = 12,
+            status = "primary",
+            solidHeader = TRUE,
+            p("The geographic and cartogram views highlight how different spatial lenses change the
+       story of EV adoption. The standard map emphasizes western Washington, especially King,
+       Snohomish, and Pierce, because large urban counties dominate visually and contain both
+       higher incomes and higher EV counts."),
+            p("However, the population-weighted cartogram reveals a more even pattern: once counties
+       are normalized by population, areas with similar income levels show more comparable
+       EV participation than the geographic map suggests. This means the ‘dominance’ of big
+       urban counties reflects visibility and density, not necessarily stronger engagement
+       per resident."),
+            p("The scatterplot reinforces income as a strong predictor of EV adoption but also shows
+       important outliers: San Juan County overperforms relative to income, while Franklin
+       underperforms. These deviations point to place-based factors, such as infrastructure,
+       rural-urban context, and local travel patterns, that shape how effectively income
+       converts into EV uptake."),
+            p("Overall, geography shapes what we see, population shapes what is actually experienced,
+       and the rural–urban continuum shapes how equally Washington residents can participate
+       in the transition to electric vehicles.")
+          )
         )
       ),
       
@@ -380,21 +406,21 @@ ui <- dashboardPage(
       tabItem(
         tabName = "member3",
         
-        fluidRow(
-          box(
-            title = "Project Overview",
-            width = 12,
-            status = "primary",
-            solidHeader = TRUE,
-            p(
-              "In this project our group hopes to better understand electric vehicle (EV) adoption across Washington. ",
-              "We combine EV registration data with demographic data to explore how factors like age and racial diversity ",
-              "relate to EVs per 1,000 residents."
-            )
-          )
-        ),
-        
-        tags$hr(),
+        # fluidRow(
+        #   box(
+        #     title = "Project Overview",
+        #     width = 12,
+        #     status = "primary",
+        #     solidHeader = TRUE,
+        #     p(
+        #       "In this project our group hopes to better understand electric vehicle (EV) adoption across Washington. ",
+        #       "We combine EV registration data with demographic data to explore how factors like age and racial diversity ",
+        #       "relate to EVs per 1,000 residents."
+        #     )
+        #   )
+        # ),
+        # 
+        # tags$hr(),
         
         fluidRow(
           box(
@@ -486,7 +512,7 @@ ui <- dashboardPage(
             width = 12,
             status = "primary",
             solidHeader = TRUE,
-            "This project explores whether EV adoption in Washington has reduced net carbon emissions."
+            "This page explores whether EV adoption in Washington has reduced net carbon emissions."
           )
         ),
         
@@ -505,7 +531,7 @@ ui <- dashboardPage(
                   status = "info",
                   solidHeader = TRUE,
                   collapsible = TRUE,
-                  p("This dashboard explores the relationship between EV adoption and emissions in Washington."),
+                  p("This page explores the relationship between EV adoption and emissions in Washington."),
                   p("The primary question of this visualization is as follows:"),
                   p("Has the adoption of electric vehicles in the state of Washington helped reduce carbon 
                      emissions, or has the increased demand for electricity actually increased carbon emissions?"),
