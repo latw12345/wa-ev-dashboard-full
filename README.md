@@ -476,6 +476,8 @@ Outputs:
 
 This module provides both exploratory and explanatory perspectives on the connection between EV growth and power-sector emissions.
 
+---
+
 ## 5. Project Structure
 
 ```
@@ -543,8 +545,35 @@ To ensure the dashboard runs correctly:
 
 ### 6.5 Running the Dashboard
 
-After installing packages and placing all CSVs in the project root, launch the app with:
+To run the dashboard smoothly and ensure all file paths resolve correctly, follow these steps:
 
-```r
-shiny::runApp()
-```
+1. **Open the project using the RStudio project file**
+   
+   - Double-click **`Fourth Stage.Rproj`**  
+   - This sets your working directory to the correct project root automatically, which is required for all file-loading functions in `setup.R` and `server.R`.
+
+3. **Verify that all required CSV files are in the project root**
+   
+   - They must be in the **same directory** as `ui.R`, `server.R`, and `setup.R`.  
+   - Filenames must **match exactly** as listed in Section 6.3.
+
+4. **Confirm that all required packages are installed**
+   
+   - See Section 6.2 for the install command.
+
+5. **Run the application**
+   
+   - From the RStudio console (after `.Rproj` has set the working directory), run:
+
+   ```r
+   shiny::runApp()
+   ```
+
+5. **Wait for initial data loading**
+   
+   - The first launch may take a few seconds because:
+      - `tigris` downloads and caches county geometries
+      - The EV dataset is large and requires preprocessing
+      - Cartograms and dot-layer generation require initial computation
+
+Once loaded, the dashboard will open in the RStudio Viewer or your default web browser.
